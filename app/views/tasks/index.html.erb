@@ -8,8 +8,9 @@
     <% else  %>
       <input type="checkbox" id="tasks">
     <% end %>
-    <label for="tasks"><%= task.title %></label>
+    <label for="tasks"><%= link_to "#{task.title}", task_path(task) %>
+                       <%= link_to "(DELETE)", task_path(task.id), method: :delete, data: { confirm: "Are you sure?" }  %></label>
   </div>
 <% end %>
 
-
+<p><%= link_to "+ Add New Task", new_task_path %></p>
